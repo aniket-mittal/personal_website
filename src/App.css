@@ -2170,6 +2170,12 @@ body {
 /* ============================================
    Mobile Home
    ============================================ */
+@media (max-width: 767px) {
+  .mode-toggle {
+    display: none;
+  }
+}
+
 .mobile-home {
   max-width: 480px;
   margin: 0 auto;
@@ -2330,4 +2336,37 @@ body {
 .mobile-desktop-hint svg {
   flex-shrink: 0;
   color: var(--accent);
+}
+
+.mobile-card-program {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  margin: 0 0 6px;
+}
+
+.mobile-coursework {
+  margin-top: 6px;
+}
+
+.mobile-coursework p {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin: 2px 0;
+  line-height: 1.4;
+}
+
+.mobile-coursework strong {
+  color: var(--text-secondary);
+}
+
+.mobile-more {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 8px;
+}
+
+.mobile-more a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
 }
