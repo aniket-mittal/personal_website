@@ -24,7 +24,8 @@ export default function MobileHome() {
             <span className="mobile-card-title">UC Berkeley</span>
             <span className="mobile-card-sub">Expected May 2028</span>
           </div>
-          <p className="mobile-card-program">M.E.T. Program — B.S. EECS + Business Administration · GPA: 3.9</p>
+          <p className="mobile-card-program">M.E.T. Program — B.S. EECS + Business Administration</p>
+          <p className="mobile-card-program">GPA: 3.9 / 4.0</p>
           <div className="mobile-coursework">
             <p><strong>EECS:</strong> Machine Learning, Data Structures & Algorithms, Computer Architecture, Discrete Math & Probability, Probability & Random Processes, Robotics & Control, Linear Algebra & Diff Eq, Signals & Systems, Data Science</p>
             <p><strong>Business:</strong> Financial Accounting, Business Ethics, Managing Tech Innovation, Entrepreneurship Immersion</p>
