@@ -1,0 +1,207 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" font-family="Inter, system-ui, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#818cf8"/>
+    </marker>
+    <marker id="arrow-muted" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#555"/>
+    </marker>
+    <linearGradient id="headerGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#4f46e5"/>
+      <stop offset="100%" stop-color="#818cf8"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="520" rx="12" fill="#0f0f14"/>
+
+  <!-- Title -->
+  <text x="450" y="36" text-anchor="middle" fill="#e8e8ed" font-size="16" font-weight="700" letter-spacing="0.5">RICE-8 CPU Architecture</text>
+  <text x="450" y="54" text-anchor="middle" fill="#666" font-size="10">8-bit Single-Cycle Harvard Architecture</text>
+
+  <!-- ==================== PC ==================== -->
+  <rect x="30" y="130" width="80" height="50" rx="8" fill="#1a1a24" stroke="#2a2a3a" stroke-width="1.5"/>
+  <rect x="30" y="130" width="80" height="3" rx="2" fill="url(#headerGrad)"/>
+  <text x="70" y="152" text-anchor="middle" fill="#e8e8ed" font-size="11" font-weight="600">PC</text>
+  <text x="70" y="168" text-anchor="middle" fill="#666" font-size="8">8-bit</text>
+
+  <!-- PC+1 adder -->
+  <circle cx="70" cy="210" r="14" fill="#1a1a24" stroke="#2a2a3a" stroke-width="1.5"/>
+  <text x="70" y="214" text-anchor="middle" fill="#818cf8" font-size="10" font-weight="700">+1</text>
+
+  <!-- PC → PC+1 -->
+  <line x1="70" y1="180" x2="70" y2="196" stroke="#818cf8" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+  <!-- ==================== IMEM ==================== -->
+  <rect x="150" y="110" width="120" height="70" rx="8" fill="#1a1a24" stroke="#2a2a3a" stroke-width="1.5"/>
+  <rect x="150" y="110" width="120" height="3" rx="2" fill="url(#headerGrad)"/>
+  <text x="210" y="140" text-anchor="middle" fill="#e8e8ed" font-size="11" font-weight="600">Instruction Memory</text>
+  <text x="210" y="156" text-anchor="middle" fill="#666" font-size="8">256 x 16 ROM</text>
+  <text x="210" y="170" text-anchor="middle" fill="#555" font-size="7">Async Read</text>
+
+  <!-- PC → IMEM -->
+  <line x1="110" y1="155" x2="148" y2="155" stroke="#818cf8" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+  <!-- ==================== CONTROL UNIT ==================== -->
+  <rect x="150" y="220" width="120" height="60" rx="8" fill="#1a1a24" stroke="#4f46e5" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <text x="210" y="248" text-anchor="middle" fill="#818cf8" font-size="11" font-weight="600">Control Unit</text>
+  <text x="210" y="264" text-anchor="middle" fill="#666" font-size="8">Opcode Decoder</text>
+
+  <!-- IMEM → Control (opcode) -->
+  <line x1="210" y1="180" x2="210" y2="218" stroke="#555" stroke-width="1" marker-end="url(#arrow-muted)"/>
+  <text x="222" y="200" fill="#555" font-size="7">[15:12]</text>
+
+  <!-- ==================== REGISTER FILE ==================== -->
+  <rect x="330" y="100" width="140" height="90" rx="8" fill="#1a1a24" stroke="#2a2a3a" stroke-width="1.5"/>
+  <rect x="330" y="100" width="140" height="3" rx="2" fill="url(#headerGrad)"/>
+  <text x="400" y="128" text-anchor="middle" fill="#e8e8ed" font-size="11" font-weight="600">Register File</text>
+  <text x="400" y="144" text-anchor="middle" fill="#666" font-size="8">8 x 8-bit  (R0 = 0)</text>
+  <text x="365" y="162" fill="#555" font-size="7">2 Read</text>
+  <text x="365" y="174" fill="#555" font-size="7">1 Write</text>
+  <text x="420" y="162" fill="#555" font-size="7">Async Rd</text>
+  <text x="420" y="174" fill="#555" font-size="7">Sync Wr</text>
+
+  <!-- IMEM → RegFile (rs1, rs2, rd fields) -->
+  <path d="M270,145 L328,130" fill="none" stroke="#818cf8" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <text x="290" y="128" fill="#555" font-size="7">rd, rs1, rs2</text>
+
+  <!-- ==================== IMM EXTEND ==================== -->
+  <rect x="330" y="220" width="140" height="50" rx="8" fill="#1a1a24" stroke="#2a2a3a" stroke-width="1.5"/>
+  <text x="400" y="244" text-anchor="middle" fill="#e8e8ed" font-size="10" font-weight="600">Imm Extend</text>
+  <text x="400" y="258" text-anchor="middle" fill="#666" font-size="8">6 → 8 bit (sign/zero)</text>
+
+  <!-- IMEM → ImmExtend -->
+  <path d="M270,160 L328,240" fill="none" stroke="#555" stroke-width="1" marker-end="url(#arrow-muted)"/>
+  <text x="280" y="210" fill="#555" font-size="7">[5:0]</text>
+
+  <!-- ==================== ALU CTRL ==================== -->
+  <rect x="530" y="220" width="110" height="50" rx="8" fill="#1a1a24" stroke="#2a2a3a" stroke-width="1.5"/>
+  <text x="585" y="244" text-anchor="middle" fill="#e8e8ed" font-size="10" font-weight="600">ALU Control</text>
+  <text x="585" y="258" text-anchor="middle" fill="#666" font-size="8">alu_op, alu_src</text>
+
+  <!-- Control → ALU Ctrl -->
+  <path d="M270,250 L528,250" fill="none" stroke="#555" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arrow-muted)"/>
+
+  <!-- ==================== MUX (ALU src) ==================== -->
+  <path d="M520,150 L520,130 L540,140 L540,180 L520,190 Z" fill="#1a1a24" stroke="#2a2a3a" stroke-width="1.5"/>
+  <text x="530" y="164" text-anchor="middle" fill="#666" font-size="8">M</text>
+
+  <!-- RegFile → MUX top -->
+  <line x1="470" y1="140" x2="518" y2="140" stroke="#818cf8" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <text x="488" y="134" fill="#555" font-size="7">rs2</text>
+
+  <!-- ImmExtend → MUX bottom -->
+  <path d="M470,245 L505,245 L505,180 L518,180" fill="none" stroke="#818cf8" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+  <!-- ==================== ALU ==================== -->
+  <path d="M580,110 L580,90 L620,105 L620,195 L580,210 L580,190 L600,175 L600,125 Z" fill="#1a1a24" stroke="#2a2a3a" stroke-width="1.5"/>
+  <rect x="580" y="90" width="40" height="3" rx="1" fill="url(#headerGrad)"/>
+  <text x="600" y="145" text-anchor="middle" fill="#e8e8ed" font-size="11" font-weight="700">ALU</text>
+  <text x="600" y="160" text-anchor="middle" fill="#666" font-size="7">8-bit</text>
+
+  <!-- RegFile rs1 → ALU A -->
+  <path d="M470,125 L490,125 L490,115 L578,115" fill="none" stroke="#818cf8" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <text x="492" y="110" fill="#555" font-size="7">A (rs1)</text>
+
+  <!-- MUX → ALU B -->
+  <line x1="540" y1="165" x2="578" y2="165" stroke="#818cf8" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <text x="548" y="160" fill="#555" font-size="7">B</text>
+
+  <!-- ALU Ctrl → ALU -->
+  <line x1="585" y1="220" x2="585" y2="212" stroke="#555" stroke-width="1" marker-end="url(#arrow-muted)"/>
+
+  <!-- ==================== FLAGS ==================== -->
+  <rect x="640" y="210" width="80" height="44" rx="6" fill="#1a1a24" stroke="#2a2a3a" stroke-width="1.5"/>
+  <text x="680" y="230" text-anchor="middle" fill="#e8e8ed" font-size="9" font-weight="600">Flags</text>
+  <text x="680" y="244" text-anchor="middle" fill="#818cf8" font-size="8" font-weight="600">Z C N V</text>
+
+  <!-- ALU → Flags -->
+  <path d="M615,195 L640,220" fill="none" stroke="#555" stroke-width="1" marker-end="url(#arrow-muted)"/>
+
+  <!-- Flags → Control (for BEQ) -->
+  <path d="M680,254 L680,270 L340,270 L340,260 L270,260" fill="none" stroke="#555" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arrow-muted)"/>
+  <text x="500" y="282" fill="#555" font-size="7">flag_z (branch)</text>
+
+  <!-- ==================== DATA MEMORY ==================== -->
+  <rect x="700" y="100" width="140" height="80" rx="8" fill="#1a1a24" stroke="#2a2a3a" stroke-width="1.5"/>
+  <rect x="700" y="100" width="140" height="3" rx="2" fill="url(#headerGrad)"/>
+  <text x="770" y="130" text-anchor="middle" fill="#e8e8ed" font-size="11" font-weight="600">Data Memory</text>
+  <text x="770" y="146" text-anchor="middle" fill="#666" font-size="8">256 x 8 RAM</text>
+  <text x="770" y="162" text-anchor="middle" fill="#555" font-size="7">Async Read · Sync Write</text>
+  <text x="770" y="174" text-anchor="middle" fill="#555" font-size="7">Harvard Separated</text>
+
+  <!-- ALU result → DMEM address -->
+  <path d="M620,140 L698,140" fill="none" stroke="#818cf8" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <text x="648" y="134" fill="#555" font-size="7">addr</text>
+
+  <!-- RegFile → DMEM write data (for SW) -->
+  <path d="M470,160 L490,160 L490,170 L680,170 L680,155 L698,155" fill="none" stroke="#555" stroke-width="1" marker-end="url(#arrow-muted)"/>
+  <text x="660" y="167" fill="#555" font-size="7">wr</text>
+
+  <!-- ==================== WRITE-BACK MUX ==================== -->
+  <path d="M760,300 L760,290 L780,295 L780,325 L760,330 Z" fill="#1a1a24" stroke="#2a2a3a" stroke-width="1.5"/>
+  <text x="770" y="314" text-anchor="middle" fill="#666" font-size="7">WB</text>
+
+  <!-- DMEM → WB mux -->
+  <path d="M770,180 L770,288" fill="none" stroke="#818cf8" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+  <!-- ALU → WB mux -->
+  <path d="M620,150 L650,150 L650,320 L758,320" fill="none" stroke="#818cf8" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+  <!-- WB mux → RegFile (write-back) -->
+  <path d="M780,310 L820,310 L820,400 L400,400 L400,192" fill="none" stroke="#818cf8" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="600" y="414" fill="#818cf8" font-size="8" font-weight="600">Write-back</text>
+
+  <!-- PC+1 → WB mux (for JAL) -->
+  <path d="M70,224 L70,310 L758,310" fill="none" stroke="#555" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arrow-muted)"/>
+  <text x="120" y="322" fill="#555" font-size="7">PC+1 (JAL)</text>
+
+  <!-- ==================== PC MUX ==================== -->
+  <rect x="30" y="300" width="60" height="40" rx="6" fill="#1a1a24" stroke="#2a2a3a" stroke-width="1.5"/>
+  <text x="60" y="318" text-anchor="middle" fill="#666" font-size="8">PC</text>
+  <text x="60" y="330" text-anchor="middle" fill="#666" font-size="8">Mux</text>
+
+  <!-- PC+1 → PC Mux -->
+  <line x1="70" y1="224" x2="70" y2="298" stroke="#818cf8" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+  <!-- PC Mux → PC -->
+  <path d="M30,320 L15,320 L15,155 L28,155" fill="none" stroke="#818cf8" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+  <!-- Branch target → PC Mux -->
+  <path d="M70,340 L70,370 L140,370 L140,245 L148,245" fill="none" stroke="#555" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="85" y="365" fill="#555" font-size="7">branch/jump target</text>
+
+  <!-- ==================== LEGEND ==================== -->
+  <rect x="30" y="440" width="840" height="60" rx="8" fill="#1a1a24" stroke="#2a2a3a" stroke-width="1"/>
+
+  <text x="50" y="462" fill="#e8e8ed" font-size="9" font-weight="600">Pipeline Stages:</text>
+
+  <!-- Fetch -->
+  <rect x="150" y="452" width="8" height="8" rx="2" fill="#818cf8"/>
+  <text x="164" y="460" fill="#a0a0b0" font-size="8">Fetch</text>
+
+  <!-- Decode -->
+  <rect x="210" y="452" width="8" height="8" rx="2" fill="#818cf8" opacity="0.8"/>
+  <text x="224" y="460" fill="#a0a0b0" font-size="8">Decode</text>
+
+  <!-- Execute -->
+  <rect x="280" y="452" width="8" height="8" rx="2" fill="#818cf8" opacity="0.6"/>
+  <text x="294" y="460" fill="#a0a0b0" font-size="8">Execute</text>
+
+  <!-- Memory -->
+  <rect x="355" y="452" width="8" height="8" rx="2" fill="#818cf8" opacity="0.4"/>
+  <text x="369" y="460" fill="#a0a0b0" font-size="8">Memory</text>
+
+  <!-- Write-back -->
+  <rect x="425" y="452" width="8" height="8" rx="2" fill="#818cf8" opacity="0.2"/>
+  <text x="439" y="460" fill="#a0a0b0" font-size="8">Write-back</text>
+
+  <text x="50" y="486" fill="#e8e8ed" font-size="9" font-weight="600">ISA:</text>
+  <text x="80" y="486" fill="#a0a0b0" font-size="8">16 instructions · 16-bit fixed encoding · R/I/J formats · 8 registers · 4 flags (Z, C, N, V)</text>
+
+  <text x="530" y="462" fill="#e8e8ed" font-size="9" font-weight="600">Key:</text>
+  <line x1="560" y1="458" x2="590" y2="458" stroke="#818cf8" stroke-width="1.5"/>
+  <text x="596" y="462" fill="#a0a0b0" font-size="8">Data path</text>
+  <line x1="650" y1="458" x2="680" y2="458" stroke="#555" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="686" y="462" fill="#a0a0b0" font-size="8">Control signals</text>
+</svg>
