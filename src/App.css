@@ -2166,3 +2166,168 @@ body {
     right: 16px;
   }
 }
+
+/* ============================================
+   Mobile Home
+   ============================================ */
+.mobile-home {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 40px 24px 60px;
+  color: var(--text);
+}
+
+.mobile-hero {
+  margin-bottom: 32px;
+}
+
+.mobile-greeting {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin: 0 0 4px;
+}
+
+.mobile-name {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin: 0 0 6px;
+}
+
+.mobile-tagline {
+  font-size: 0.9rem;
+  color: var(--accent);
+  font-weight: 500;
+  margin: 0 0 12px;
+}
+
+.mobile-desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.mobile-section {
+  margin-bottom: 28px;
+}
+
+.mobile-section h2 {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin: 0 0 12px;
+  font-weight: 650;
+}
+
+.mobile-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mobile-section li {
+  font-size: 0.84rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  padding-left: 12px;
+  position: relative;
+  margin-bottom: 8px;
+}
+
+.mobile-section li::before {
+  content: '·';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.mobile-section li a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.mobile-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin-bottom: 8px;
+}
+
+.mobile-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.mobile-card-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.mobile-card-sub {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.mobile-card p {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+  margin: 0;
+}
+
+.mobile-link {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 0.8rem;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.mobile-link:hover {
+  text-decoration: underline;
+}
+
+.mobile-links-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.mobile-links-row a {
+  font-size: 0.84rem;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.mobile-links-row a:hover {
+  text-decoration: underline;
+}
+
+.mobile-desktop-hint {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 40px;
+  padding: 14px 16px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.mobile-desktop-hint svg {
+  flex-shrink: 0;
+  color: var(--accent);
+}

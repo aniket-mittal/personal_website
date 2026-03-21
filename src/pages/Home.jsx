@@ -1,16 +1,28 @@
 import { useState, useEffect } from 'react'
 import { useTheme } from '../context/ThemeContext'
 import WorldViewer from '../components/WorldViewer'
+import MobileHome from '../components/MobileHome'
+
+const isMobile = () => /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || window.innerWidth < 768
 
 export default function Home() {
   const { boring } = useTheme()
   const [worldExpanded, setWorldExpanded] = useState(false)
+  const [mobile, setMobile] = useState(isMobile)
 
   useEffect(() => {
     const collapse = () => setWorldExpanded(false)
     window.addEventListener('collapse-world', collapse)
     return () => window.removeEventListener('collapse-world', collapse)
   }, [])
+
+  useEffect(() => {
+    const check = () => setMobile(isMobile())
+    window.addEventListener('resize', check)
+    return () => window.removeEventListener('resize', check)
+  }, [])
+
+  if (mobile) return <MobileHome />
 
   if (boring) {
     return (
