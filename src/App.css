@@ -157,10 +157,13 @@ body {
 .home {
   display: flex;
   align-items: center;
+  justify-content: center;
   min-height: calc(100vh - 56px);
   padding: 60px 48px;
   gap: 48px;
   position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .home--world-expanded {
