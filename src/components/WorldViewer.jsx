@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState, Suspense, useCallback, useMemo } from 'react'
 import { Canvas, useFrame, useThree, extend } from '@react-three/fiber'
-import { Html, useProgress } from '@react-three/drei'
+import { useProgress } from '@react-three/drei'
 import { SplatMesh } from '@sparkjsdev/spark'
 import * as THREE from 'three'
 import WaypointPanel from './WaypointPanel'
@@ -22,10 +22,11 @@ const WAYPOINTS = [
 
 const PROXIMITY_THRESHOLD = 4
 
-function Loader() {
-  const { progress } = useProgress()
+function LoaderOverlay() {
+  const { progress, active } = useProgress()
+  if (!active && progress >= 100) return null
   return (
-    <Html center>
+    <div className="world-loader-overlay">
       <div className="world-loader">
         <p className="world-loader-title">Loading world...</p>
         <div className="world-loader-bar">
@@ -33,7 +34,7 @@ function Loader() {
         </div>
         <p>{progress.toFixed(0)}% loaded</p>
       </div>
-    </Html>
+    </div>
   )
 }
 
@@ -391,6 +392,8 @@ export default function WorldViewer({ expanded, onToggleExpand }) {
         </div>
       )}
 
+      <LoaderOverlay />
+
       <Canvas
         camera={{ fov: 50, near: 0.1, far: 1000 }}
         dpr={[1, 2]}
@@ -402,7 +405,7 @@ export default function WorldViewer({ expanded, onToggleExpand }) {
           powerPreference: 'high-performance',
         }}
       >
-        <Suspense fallback={<Loader />}>
+        <Suspense fallback={null}>
           <SplatWorld path="/worlds/world.spz" />
         </Suspense>
         <CameraController keysRef={keysRef} navigateRef={navigateRef} onPositionChange={handlePositionChange} expanded={expanded} />
