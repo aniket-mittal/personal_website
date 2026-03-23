@@ -23,11 +23,13 @@ const PROXIMITY_THRESHOLD = 4
 
 function SplatWorld({ path, onLoaded }) {
   const meshRef = useRef()
+  const calledRef = useRef(false)
   const args = useMemo(() => ({ url: path }), [path])
 
   useFrame(() => {
-    if (meshRef.current && onLoaded) {
-      onLoaded()
+    if (!calledRef.current && meshRef.current?.isInitialized) {
+      calledRef.current = true
+      onLoaded?.()
     }
   })
 
