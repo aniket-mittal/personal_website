@@ -1,6 +1,5 @@
 import { useRef, useEffect, useState, Suspense, useCallback, useMemo } from 'react'
 import { Canvas, useFrame, useThree, extend } from '@react-three/fiber'
-import { useProgress } from '@react-three/drei'
 import { SplatMesh } from '@sparkjsdev/spark'
 import * as THREE from 'three'
 import WaypointPanel from './WaypointPanel'
@@ -22,25 +21,16 @@ const WAYPOINTS = [
 
 const PROXIMITY_THRESHOLD = 4
 
-function LoaderOverlay() {
-  const { progress, active } = useProgress()
-  if (!active && progress >= 100) return null
-  return (
-    <div className="world-loader-overlay">
-      <div className="world-loader">
-        <p className="world-loader-title">Loading world...</p>
-        <div className="world-loader-bar">
-          <div className="world-loader-fill" style={{ width: `${progress}%` }} />
-        </div>
-        <p>{progress.toFixed(0)}% loaded</p>
-      </div>
-    </div>
-  )
-}
-
-function SplatWorld({ path }) {
+function SplatWorld({ path, onLoaded }) {
   const meshRef = useRef()
   const args = useMemo(() => ({ url: path }), [path])
+
+  useFrame(() => {
+    if (meshRef.current && onLoaded) {
+      onLoaded()
+    }
+  })
+
   return <splatMesh ref={meshRef} args={[args]} />
 }
 
@@ -263,6 +253,11 @@ export default function WorldViewer({ expanded, onToggleExpand }) {
   const [playerPos, setPlayerPos] = useState([0, 0.8, 0])
   const playerPosRef = useRef([0, 0.8, 0])
   const [nearbyWaypoint, setNearbyWaypoint] = useState(null)
+  const [worldLoaded, setWorldLoaded] = useState(false)
+
+  const handleWorldLoaded = useCallback(() => {
+    setWorldLoaded(true)
+  }, [])
 
   const handlePositionChange = useCallback((pos) => {
     playerPosRef.current = pos
@@ -392,7 +387,13 @@ export default function WorldViewer({ expanded, onToggleExpand }) {
         </div>
       )}
 
-      <LoaderOverlay />
+      {!worldLoaded && (
+        <div className="world-loader-overlay">
+          <div className="world-loader">
+            <p className="world-loader-title">Loading world...</p>
+          </div>
+        </div>
+      )}
 
       <Canvas
         camera={{ fov: 50, near: 0.1, far: 1000 }}
@@ -406,7 +407,7 @@ export default function WorldViewer({ expanded, onToggleExpand }) {
         }}
       >
         <Suspense fallback={null}>
-          <SplatWorld path="/worlds/world.spz" />
+          <SplatWorld path="/worlds/world.spz" onLoaded={handleWorldLoaded} />
         </Suspense>
         <CameraController keysRef={keysRef} navigateRef={navigateRef} onPositionChange={handlePositionChange} expanded={expanded} />
       </Canvas>
