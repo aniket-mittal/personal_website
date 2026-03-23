@@ -95,7 +95,7 @@ const worldProjects = [
   },
   {
     title: 'Vero',
-    description: 'Autonomous AI agent that discovers, downloads, analyzes, curates, and combines datasets from multiple providers — all through natural language.',
+    description: 'Autonomous AI agent that discovers, downloads, analyzes, curates, and combines datasets from multiple providers, all through natural language.',
     videoUrl: '/vero-demo.mp4',
     github: 'https://github.com/aniket-mittal',
     sections: [
@@ -131,7 +131,7 @@ const worldProjects = [
   },
   {
     title: 'Staging Sphere',
-    description: 'AI real estate staging — transforms empty rooms into furnished spaces using semantic segmentation and stable diffusion. 5 corporate clients.',
+    description: 'AI real estate staging: transforms empty rooms into furnished spaces using semantic segmentation and stable diffusion. 5 corporate clients.',
     videoUrl: '/stagingsphere-demo.mp4',
     github: 'https://github.com/aniket-mittal/real_estate_app',
     sections: [
@@ -181,11 +181,11 @@ const PANEL_CONTENT = {
         <div className="wp-panel-section">
           <h3>Previously</h3>
           <ul>
-            <li>ML Engineer at NASA — explainable AI for exoplanets & computer vision for JWST</li>
-            <li>Software Engineer at SJSU CFD Lab — fluid dynamics in C++, presented at APS DFD</li>
-            <li>Staging Sphere — AI real estate staging, outperformed GPT-4o, 5 corporate clients</li>
-            <li>FireSight — wildfire detection system, published in EarthArxiv, 2 citations</li>
-            <li>ImageVision — AI photo editor with SDXL, CLIP, ControlNet & SAM</li>
+            <li>ML Engineer at NASA: explainable AI for exoplanets & computer vision for JWST</li>
+            <li>Software Engineer at SJSU CFD Lab: fluid dynamics in C++, presented at APS DFD</li>
+            <li>Staging Sphere: AI real estate staging, outperformed GPT-4o, 5 corporate clients</li>
+            <li>FireSight: wildfire detection system, published in EarthArxiv, 2 citations</li>
+            <li>ImageVision: AI photo editor with SDXL, CLIP, ControlNet & SAM</li>
           </ul>
         </div>
         <div className="wp-panel-section">
@@ -289,7 +289,7 @@ const PANEL_CONTENT = {
     body: ({ onOpen }) => (
       <>
         <p className="wp-panel-desc">
-          Still learning — but I hit my first black diamond in January 2026 and somehow made it down in one piece.
+          Still learning, but I hit my first black diamond in January 2026 and somehow made it down in one piece.
           I've been having a lot of fun learning and slowly but surely getting better.
         </p>
         <div className="wp-panel-gallery">
@@ -312,7 +312,7 @@ const PANEL_CONTENT = {
     body: ({ onOpen }) => (
       <>
         <p className="wp-panel-desc">
-          Aspiring car enthusiast — I love the engineering and design but still can't remember half the names.
+          Aspiring car enthusiast. I love the engineering and design but still can't remember half the names.
           Here are some of the cars I saw at Monterey Car Week.
         </p>
         <div className="wp-panel-gallery">
@@ -332,7 +332,7 @@ const PANEL_CONTENT = {
     body: ({ onOpen }) => (
       <>
         <p className="wp-panel-desc">
-          I trained in karate for 10 years and taught for over 6 — probably the most fun experience of my life.
+          I trained in karate for 10 years and taught for over 6. Probably the most fun experience of my life.
           I competed internationally and it taught me so much about teamwork and discipline.
         </p>
         <div className="wp-panel-gallery">
@@ -351,7 +351,7 @@ const PANEL_CONTENT = {
     body: ({ onOpen }) => (
       <>
         <p className="wp-panel-desc">
-          Still learning — not every shot is pretty, but that's part of it.
+          Still learning. Not every shot is pretty, but that's part of it.
         </p>
         <div className="wp-panel-video" onClick={() => onOpen(GOLF_MEDIA, 0)}>
           <video src="/golf-demo.mp4" autoPlay loop muted playsInline />

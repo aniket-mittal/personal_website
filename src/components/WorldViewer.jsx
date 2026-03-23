@@ -27,6 +27,7 @@ function Loader() {
   return (
     <Html center>
       <div className="world-loader">
+        <p className="world-loader-title">Loading world...</p>
         <div className="world-loader-bar">
           <div className="world-loader-fill" style={{ width: `${progress}%` }} />
         </div>

@@ -77,7 +77,7 @@ export default function Resume() {
           <h2>Education</h2>
           <div className="boring-item">
             <div className="boring-item-header">
-              <strong>{education.school} — {education.program}</strong>
+              <strong>{education.school}, {education.program}</strong>
               <span>{education.period}</span>
             </div>
             <p>{education.degrees} &nbsp;|&nbsp; GPA: {education.gpa}</p>
@@ -91,7 +91,7 @@ export default function Resume() {
           {experience.map((exp, i) => (
             <div key={i} className="boring-item">
               <div className="boring-item-header">
-                <strong>{exp.role} — {exp.company}</strong>
+                <strong>{exp.role}, {exp.company}</strong>
                 <span>{exp.period}</span>
               </div>
               <ul>

@@ -51,23 +51,23 @@ export default function Home() {
           <div className="boring-prev-grid">
             <div className="boring-prev-item">
               <span className="boring-prev-label">NASA</span>
-              <span className="boring-prev-desc">ML Engineer — explainable AI for exoplanets & computer vision for JWST</span>
+              <span className="boring-prev-desc">ML Engineer: explainable AI for exoplanets & computer vision for JWST</span>
             </div>
             <div className="boring-prev-item">
               <span className="boring-prev-label">SJSU CFD Lab</span>
-              <span className="boring-prev-desc">Software Engineer — fluid dynamics optimization in C++, presented at APS DFD</span>
+              <span className="boring-prev-desc">Software Engineer: fluid dynamics optimization in C++, presented at APS DFD</span>
             </div>
             <div className="boring-prev-item">
               <span className="boring-prev-label">Staging Sphere</span>
-              <span className="boring-prev-desc">AI real estate staging — outperformed GPT-4o, 5 corporate clients</span>
+              <span className="boring-prev-desc">AI real estate staging: outperformed GPT-4o, 5 corporate clients</span>
             </div>
             <div className="boring-prev-item">
               <span className="boring-prev-label">FireSight</span>
-              <span className="boring-prev-desc">Wildfire detection system — published in EarthArxiv, 2 citations</span>
+              <span className="boring-prev-desc">Wildfire detection system: published in EarthArxiv, 2 citations</span>
             </div>
             <div className="boring-prev-item">
               <span className="boring-prev-label">ImageVision</span>
-              <span className="boring-prev-desc">AI photo editor — SDXL, CLIP, ControlNet & SAM</span>
+              <span className="boring-prev-desc">AI photo editor: SDXL, CLIP, ControlNet & SAM</span>
             </div>
           </div>
         </div>

@@ -5,7 +5,7 @@ export default function ArbitrageExplainer() {
       <p className="arb-subtitle">
         When two platforms price the same event differently, you can buy{' '}
         <strong>Yes</strong> on one and <strong>No</strong> on the other for
-        less than $1 combined. One side always pays $1 — the difference is yours.
+        less than $1 combined. One side always pays $1, and the difference is yours.
       </p>
 
       <div className="arb-layout">

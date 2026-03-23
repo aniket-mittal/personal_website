@@ -39,22 +39,22 @@ const projects = [
   },
   {
     title: 'Vero',
-    description: 'Autonomous AI agent that discovers, downloads, analyzes, curates, and combines datasets from multiple providers — all through natural language. Tell it what you need and it builds production-ready datasets.',
+    description: 'Autonomous AI agent that discovers, downloads, analyzes, curates, and combines datasets from multiple providers, all through natural language. Tell it what you need and it builds production-ready datasets.',
     videoUrl: '/vero-demo.mp4',
     github: 'https://github.com/aniket-mittal',
     sections: [
       {
         heading: 'Persistent Sandbox',
         content: [
-          'Vero runs code in a Jupyter-style Python sandbox where variables persist across every execution step — just like notebook cells. The agent can iteratively explore, transform, and validate data without losing state.',
+          'Vero runs code in a Jupyter-style Python sandbox where variables persist across every execution step, just like notebook cells. The agent can iteratively explore, transform, and validate data without losing state.',
           'The sandbox comes pre-loaded with pandas, numpy, scikit-learn, matplotlib, seaborn, and more. A variable tracker automatically summarizes the active workspace (shapes, dtypes, memory usage) and injects it into the agent\'s context so it always knows what data it\'s working with.',
-          'Security is enforced through restricted file I/O, blocked network modules, and read-only environment variables — keeping execution isolated per run.',
+          'Security is enforced through restricted file I/O, blocked network modules, and read-only environment variables, keeping execution isolated per run.',
         ],
       },
       {
         heading: 'Multi-Provider Search',
         content: [
-          'Vero searches HuggingFace (700K+ datasets), Kaggle, and Yahoo Finance through a unified interface. It filters by tags, language, license, size, and sorts by downloads or recency — then downloads and registers datasets automatically.',
+          'Vero searches HuggingFace (700K+ datasets), Kaggle, and Yahoo Finance through a unified interface. It filters by tags, language, license, size, and sorts by downloads or recency, then downloads and registers datasets automatically.',
           'License-aware filtering lets users specify personal, research, or commercial use, and Vero only surfaces datasets that match.',
         ],
       },
@@ -62,13 +62,13 @@ const projects = [
         heading: 'Memory & Context Management',
         content: [
           'A two-layer memory system keeps the agent grounded. Short-term memory tracks downloaded datasets, discovered insights, and error-resolution pairs within a run. Semantic memory persists cross-session patterns (workflow shortcuts, data issue fixes) so the agent learns from past runs.',
-          'When conversations grow long, a token-aware compaction system kicks in — masking old tool outputs at 70% utilization and dropping stale messages at 82% — keeping the agent within its context window without losing critical information.',
+          'When conversations grow long, a token-aware compaction system kicks in, masking old tool outputs at 70% utilization and dropping stale messages at 82%, keeping the agent within its context window without losing critical information.',
         ],
       },
       {
         heading: 'Autonomous Planning',
         content: [
-          'The agent creates and updates a structured task plan as it works, marking subtasks as in-progress or complete. It decides when to stop on its own — there are no hard iteration limits. A loop detector catches repeated actions and nudges the agent toward a different approach.',
+          'The agent creates and updates a structured task plan as it works, marking subtasks as in-progress or complete. It decides when to stop on its own; there are no hard iteration limits. A loop detector catches repeated actions and nudges the agent toward a different approach.',
           'Runs can be paused (graceful SIGTERM saves full session state to disk) and resumed later, or extended with follow-up prompts that inherit the parent run\'s context.',
         ],
       },
@@ -76,13 +76,13 @@ const projects = [
         heading: 'Data Quality Tools',
         content: [
           'Built-in profiling generates constant-size summaries (~500 tokens) even for wide DataFrames, so the agent can inspect data without blowing up its context. Quality checks detect nulls, type mismatches, and outliers automatically.',
-          'Dedicated utilities handle deduplication (exact or fuzzy), class balancing, stratified train/val/test splits, and value mapping — all discoverable by the agent through a search_patterns() tool.',
+          'Dedicated utilities handle deduplication (exact or fuzzy), class balancing, stratified train/val/test splits, and value mapping, all discoverable by the agent through a search_patterns() tool.',
         ],
       },
       {
         heading: 'Coming Soon',
         content: [
-          'Expanding Vero\'s reach to more of the internet — web scraping, APIs, and real-time data feeds. Adding synthetic data generation via LLMs (structured text, tabular augmentation) and diffusion models (image generation and augmentation) to fill gaps in real-world datasets.',
+          'Expanding Vero\'s reach to more of the internet: web scraping, APIs, and real-time data feeds. Adding synthetic data generation via LLMs (structured text, tabular augmentation) and diffusion models (image generation and augmentation) to fill gaps in real-world datasets.',
         ],
       },
     ],
@@ -91,20 +91,20 @@ const projects = [
   },
   {
     title: 'Simple CPU (RICE-8)',
-    description: '8-bit single-cycle Harvard-architecture CPU designed from scratch in ~1,500 lines of Verilog — custom ISA, ALU, register file, and full testbench suite.',
+    description: '8-bit single-cycle Harvard-architecture CPU designed from scratch in ~1,500 lines of Verilog: custom ISA, ALU, register file, and full testbench suite.',
     github: 'https://github.com/aniket-mittal',
     sections: [
       {
         heading: 'Architecture',
         content: [
-          'RICE-8 is a single-cycle CPU with completely separate instruction (256×16 ROM) and data (256×8 RAM) memory spaces. All pipeline stages — fetch, decode, execute, memory access, write-back — complete in one clock period with no stalls or hazards.',
+          'RICE-8 is a single-cycle CPU with completely separate instruction (256×16 ROM) and data (256×8 RAM) memory spaces. All pipeline stages (fetch, decode, execute, memory access, write-back) complete in one clock period with no stalls or hazards.',
           'The module hierarchy is clean: cpu_top wires together instruction memory, a control unit, a datapath (containing the PC, register file, ALU controller, ALU, and immediate extender), and data memory.',
         ],
       },
       {
         heading: 'Instruction Set',
         content: [
-          'Fixed 16-bit encoding with three formats: R-type (register-register), I-type (immediate), and J-type (jump). 16 instructions total — ADD, SUB, AND, OR, XOR, NOT, SHL, SHR, ADDI, ANDI, ORI, LW, SW, BEQ, JMP, and JAL.',
+          'Fixed 16-bit encoding with three formats: R-type (register-register), I-type (immediate), and J-type (jump). 16 instructions total: ADD, SUB, AND, OR, XOR, NOT, SHL, SHR, ADDI, ANDI, ORI, LW, SW, BEQ, JMP, and JAL.',
           'Arithmetic immediates use sign-extension (supporting negative offsets) while logic immediates use zero-extension (clean bitmasks). The R0 register is hardwired to zero following RISC convention, enabling clean pseudo-instructions like NOP, MOV, and LI.',
         ],
       },
@@ -117,7 +117,7 @@ const projects = [
       {
         heading: 'Register File & Memory',
         content: [
-          '8×8-bit register file with dual asynchronous read ports and one synchronous write port. Asynchronous reads are critical for single-cycle execution — data is available immediately without waiting for a clock edge.',
+          '8×8-bit register file with dual asynchronous read ports and one synchronous write port. Asynchronous reads are critical for single-cycle execution; data is available immediately without waiting for a clock edge.',
           'Harvard architecture separates instruction and data address spaces entirely. Instruction memory is pure combinational ROM; data memory uses asynchronous read with synchronous write for stable timing.',
         ],
       },
@@ -129,21 +129,21 @@ const projects = [
       },
     ],
     images: [
-      { src: '/rice8-architecture.svg', caption: 'RICE-8 CPU datapath — single-cycle Harvard architecture with 8-bit ALU, 8-register file, separate instruction/data memories, and full control unit.' },
+      { src: '/rice8-architecture.svg', caption: 'RICE-8 CPU datapath: single-cycle Harvard architecture with 8-bit ALU, 8-register file, separate instruction/data memories, and full control unit.' },
     ],
     tags: ['Verilog', 'Computer Architecture'],
     date: 'Feb 2026 – Mar 2026',
   },
   {
     title: 'ImageVision Photo Editor',
-    description: 'AI photo editor that combines SDXL, CLIP, ControlNet, SAM, and FBA Matting into a single pipeline — edit images and ask questions about them using natural language.',
+    description: 'AI photo editor that combines SDXL, CLIP, ControlNet, SAM, and FBA Matting into a single pipeline. Edit images and ask questions about them using natural language.',
     videoUrl: '/imagevision-demo.mp4',
     github: 'https://github.com/aniket-mittal/image_vision',
     sections: [
       {
         heading: 'Text-Guided Selection & Masking',
         content: [
-          'Type what you want to select — GroundingDINO localizes objects via text prompts, then SAM (Segment Anything, ViT-H) refines bounding boxes into pixel-precise masks. No manual lasso needed.',
+          'Type what you want to select: GroundingDINO localizes objects via text prompts, then SAM (Segment Anything, ViT-H) refines bounding boxes into pixel-precise masks. No manual lasso needed.',
           'CLIP attention maps (ViT-L-14-336, layer 22) highlight query-relevant regions with spatial biasing for directional hints like "left person" or "bottom right object." Masks are enhanced via sigmoid activation and edge feathering for smooth transitions.',
         ],
       },
@@ -158,13 +158,13 @@ const projects = [
         heading: 'Vision Q&A & Analysis',
         content: [
           'Dual-mode interface: "Ask" for analysis and "Edit" for manipulation. In Ask mode, images are preprocessed with CLIP attention or GroundedSAM segmentation highlighting, then sent to vision-language models (GPT-4o, Claude, Gemini) with context.',
-          'An iterative agent loop refines queries automatically — if the initial result is unsatisfactory, it retries with different preprocessing techniques up to 20 times.',
+          'An iterative agent loop refines queries automatically: if the initial result is unsatisfactory, it retries with different preprocessing techniques up to 20 times.',
         ],
       },
       {
         heading: 'Precision Matting & Face Parsing',
         content: [
-          'FBA Matting produces pixel-accurate alpha mattes for thin structures like hair — built from coarse trimaps (foreground > 0.9, background < 0.1, unknown transition zone). BiSeNet parses faces into 19 semantic parts (skin, hair, eyes, mouth) for face-aware editing.',
+          'FBA Matting produces pixel-accurate alpha mattes for thin structures like hair, built from coarse trimaps (foreground > 0.9, background < 0.1, unknown transition zone). BiSeNet parses faces into 19 semantic parts (skin, hair, eyes, mouth) for face-aware editing.',
         ],
       },
       {
@@ -186,14 +186,14 @@ const projects = [
       {
         heading: 'AI Staging Pipeline',
         content: [
-          'Semantic segmentation identifies furniture-placeable regions — floors, walls, and open spaces — from an uploaded room photo. The segmentation mask feeds into a stable diffusion inpainting pipeline (SDXL) that generates photorealistic furniture matched to the room\'s geometry and lighting.',
+          'Semantic segmentation identifies furniture-placeable regions (floors, walls, and open spaces) from an uploaded room photo. The segmentation mask feeds into a stable diffusion inpainting pipeline (SDXL) that generates photorealistic furniture matched to the room\'s geometry and lighting.',
           'Users choose from 31 room types and 22 design styles (Scandinavian, mid-century modern, industrial, minimalist, etc.) with additional color scheme and specialty decor controls for fine-grained customization.',
         ],
       },
       {
         heading: 'Hallucination Correction',
         content: [
-          'Built a validation layer that detects and corrects common diffusion hallucinations — floating furniture, impossible shadows, scale inconsistencies, and objects bleeding through walls. This correction system outperformed GPT-4o on staging quality benchmarks.',
+          'Built a validation layer that detects and corrects common diffusion hallucinations: floating furniture, impossible shadows, scale inconsistencies, and objects bleeding through walls. This correction system outperformed GPT-4o on staging quality benchmarks.',
         ],
       },
       {
@@ -219,7 +219,7 @@ const projects = [
     github: 'https://github.com/aniket-mittal/firesight',
     paper: 'https://eartharxiv.org/repository/view/5972/',
     images: [
-      { src: '/firesight-prediction.png', caption: 'Fire spread prediction — 12 environmental input channels (elevation, temperature, wind, vegetation, drought, etc.) alongside ground truth and model prediction output.' },
+      { src: '/firesight-prediction.png', caption: 'Fire spread prediction: 12 environmental input channels (elevation, temperature, wind, vegetation, drought, etc.) alongside ground truth and model prediction output.' },
       { src: '/firesight-spread.png', caption: 'Temporal fire spread progression over 7 time steps, showing the expanding fire perimeter and evacuation zone.' },
     ],
     sections: [
@@ -240,7 +240,7 @@ const projects = [
       {
         heading: 'Fire Spread & Escape Routes',
         content: [
-          'Predictions chain temporally — each output becomes input for the next step, generating multi-step fire spread animations across 7+ time steps. The expanding fire perimeter reveals safe corridors and evacuation zones.',
+          'Predictions chain temporally: each output becomes input for the next step, generating multi-step fire spread animations across 7+ time steps. The expanding fire perimeter reveals safe corridors and evacuation zones.',
           'The escape route algorithm uses predicted spread maps to calculate optimal evacuation paths away from expanding fire fronts, factoring in terrain, wind direction, and road networks.',
         ],
       },

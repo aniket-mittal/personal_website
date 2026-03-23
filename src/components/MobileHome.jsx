@@ -24,7 +24,7 @@ export default function MobileHome() {
             <span className="mobile-card-title">UC Berkeley</span>
             <span className="mobile-card-sub">Expected May 2028</span>
           </div>
-          <p className="mobile-card-program">M.E.T. Program — B.S. EECS + Business Administration</p>
+          <p className="mobile-card-program">M.E.T. Program: B.S. EECS + Business Administration</p>
           <p className="mobile-card-program">GPA: 3.9 / 4.0</p>
           <div className="mobile-coursework">
             <p><strong>EECS:</strong> Machine Learning, Data Structures & Algorithms, Computer Architecture, Discrete Math & Probability, Probability & Random Processes, Robotics & Control, Linear Algebra & Diff Eq, Signals & Systems, Data Science</p>
@@ -72,7 +72,7 @@ export default function MobileHome() {
             <span className="mobile-card-title">CrossOdds</span>
             <span className="mobile-card-sub">Mar 2026 – Present</span>
           </div>
-          <p>Prediction markets arbitrage engine — 300K+ impressions, 30 active users</p>
+          <p>Prediction markets arbitrage engine: 300K+ impressions, 30 active users</p>
         </div>
         <div className="mobile-card">
           <div className="mobile-card-header">
@@ -93,21 +93,21 @@ export default function MobileHome() {
             <span className="mobile-card-title">ImageVision</span>
             <span className="mobile-card-sub">Sep–Dec 2024</span>
           </div>
-          <p>AI photo editor — SDXL, CLIP, ControlNet & SAM</p>
+          <p>AI photo editor: SDXL, CLIP, ControlNet & SAM</p>
         </div>
         <div className="mobile-card">
           <div className="mobile-card-header">
             <span className="mobile-card-title">Staging Sphere</span>
             <span className="mobile-card-sub">Dec 2024 – May 2025</span>
           </div>
-          <p>AI real estate staging — outperformed GPT-4o, 5 corporate clients</p>
+          <p>AI real estate staging: outperformed GPT-4o, 5 corporate clients</p>
         </div>
         <div className="mobile-card">
           <div className="mobile-card-header">
             <span className="mobile-card-title">FireSight</span>
             <span className="mobile-card-sub">Dec 2024 – May 2025</span>
           </div>
-          <p>Wildfire detection — published in EarthArxiv, 700+ views, 2 citations</p>
+          <p>Wildfire detection: published in EarthArxiv, 700+ views, 2 citations</p>
         </div>
         <p className="mobile-more">…and many more on <a href="https://github.com/aniket-mittal" target="_blank" rel="noopener noreferrer">GitHub</a></p>
       </div>
