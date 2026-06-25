@@ -48,7 +48,7 @@ const education = {
   program: 'Management, Entrepreneurship & Technology Program',
   degrees: 'B.S. Electrical Engineering & Computer Science + Business Administration',
   gpa: '3.9 / 4.0',
-  period: 'Expected May 2028',
+  period: '',
   eecsCourses: [
     'Machine Learning', 'Data Structures & Algorithms', 'Computer Architecture',
     'Discrete Math & Probability', 'Probability & Random Processes',

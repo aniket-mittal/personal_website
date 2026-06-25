@@ -65,7 +65,7 @@ const education = {
   program: 'Management, Entrepreneurship & Technology Program',
   degrees: 'B.S. EECS + Business Administration',
   gpa: '3.9 / 4.0',
-  period: 'Expected May 2028',
+  period: '',
   eecsCourses: ['Machine Learning', 'Data Structures & Algorithms', 'Computer Architecture', 'Discrete Math & Probability', 'Probability & Random Processes', 'Robotics & Control', 'Linear Algebra & Diff Eq', 'Signals & Systems', 'Data Science'],
   businessCourses: ['Financial Accounting', 'Business Ethics', 'Managing Tech Innovation', 'Entrepreneurship Immersion'],
 }
